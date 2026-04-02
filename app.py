@@ -7,6 +7,14 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return "Cloud Security System Running"
+@app.route('/alerts')
+def alerts():
+    try:
+        with open("security_alerts.log", "r") as f:
+            return f.read()
+    except:
+        return "No alerts yet"
+    
 
 def start_detector():
     detector.monitor_logs()
