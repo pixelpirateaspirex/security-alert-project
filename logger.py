@@ -34,3 +34,13 @@ while True:
     
     # Generate a new log every 2 seconds
     time.sleep(2)
+
+
+if _name_ == "_main_":
+    # Render automatically sets a PORT
+    port = int(os.environ.get("PORT", 10000))
+    # '0.0.0.0' is required for Render to detect the app
+    # Agar aap Flask use kar rahi hain:
+    app.run(host='0.0.0.0', port=port)
+    # Agar simple script hai toh:
+    # print(f"Login service started on port {port}")
